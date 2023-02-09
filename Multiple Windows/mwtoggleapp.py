@@ -1,0 +1,40 @@
+import sys
+from random import randint
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
+
+
+class AnotherWindow(QWidget):
+   """
+   This "window" is a QWidget.  If it has no parent,
+   it will appear as a free floating window.  As desired.
+   """
+   def __init__(self):
+      super().__init__()
+      layout = QVBoxLayout()
+      self.label = QLabel(f"Another Window: {randint(0,100)}")
+      layout.addWidget(self.label)
+      self.setLayout(layout)
+      
+      
+class MainWindow(QMainWindow):
+   
+   def __init__(self):
+      super().__init__()
+      self.window = None
+      self.button = QPushButton("Push for Window")
+      self.button.clicked.connect(self.show_new_window)
+      self.setCentralWidget(self.button)
+   
+   def show_new_window(self, checked):
+      if self.window is None:
+         self.window = AnotherWindow()
+         self.window.show()
+      else:
+         self.window.close()
+         self.window = None
+      
+      
+app = QApplication(sys.argv)
+w = MainWindow()
+w.show()
+app.exec()
