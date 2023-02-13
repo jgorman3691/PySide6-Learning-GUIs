@@ -1,0 +1,3 @@
+{
+    "files": ["main.py","../QResource/animal.qrc","../QResource/animal-monkey.png","../QResource/animal-penguin.png","../QResource/qrapp.py","../QResource/qresapp.py","../QResource/resources.py","../QResource/resources.qrc"]
+}

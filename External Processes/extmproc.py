@@ -28,7 +28,7 @@ class MainWindow(QMainWindow):
    def start_process(self):
       self.message("Executing Process.")
       self.p = QProcess()  # Keep a reference to the QProcess (e.g. on self) while it's running
-      self.p.start("python.exe", ['dummyf.py'])
+      self.p.start("python.exe", ['dummy.py'])
       # We'll run our process here.
       pass
 
